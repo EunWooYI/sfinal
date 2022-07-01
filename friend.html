@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Post</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #fafafa;
+        }
+
+        .navigationList {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding-top: 50px;
+            border-top: 1px solid #dbdbdb;
+            border-bottom: 1px solid #dbdbdb;
+        }
+
+        .middle{ 
+            text-align: center;
+            margin-top: 25px;
+
+
+        }
+        .navigationItem {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            width: 33.3%;
+        }
+
+        .navigationItem:last-child{
+            margin-right: 0;
+        }
+
+        
+        .write {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            margin-top: 10px;
+
+    }
+
+    .write1{
+        font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+    }
+
+        .navigationItem.active .navigationItem_Text {
+            color: #000;
+        }
+        
+         
+        .navigationItem.active .navigationItem_Icon path {
+                fill: #0095f6;
+            }
+
+        .navigationItem_Button{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            background-color: transparent;
+            appearance: none;
+            -webkit-appearance: none;
+            padding: 12px 0;
+            cursor: pointer;
+        }
+        
+        .navigationItem_Icon {
+            width: 24px;
+            height: 24px;
+        }
+
+
+        .navigationItem_Text {
+            display: none;
+            font-weight: bold;
+            font-size: 12 px;
+            color: #868686;
+            letter-spacing: 0.7px;
+        }
+
+        .PhotosGrid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .PhotosGrid_Photo{
+            width: 33%;
+            width: calc(33.3% - 2px);
+            height: 30vw;
+            background-position: center;
+            background-size: cover;
+            margin-bottom: 3px;
+        }
+
+        .navigation_First{
+            list-style: none;
+            display: flex;
+            display: inline-flex;
+            padding: 10px;
+            border-bottom: 1px #dbdbdb;
+        }
+
+        .write {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            margin-top: 20px;
+
+    }
+
+    .write1{
+        font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            margin-top: 30px;
+    }
+
+        #logo{
+            display: flex;
+        }
+        
+        #searchbox{
+            padding-left: 275px;
+            padding-top: 10px;
+            height: 36px;
+            width: 268;
+            border-color: solid gray;
+            fill: solid gray;
+        }
+
+        #home{
+            padding-top: 7px;
+            padding-left: 150px;
+        }
+        #send{
+            padding-top: 7px;
+            padding-left: 15px;
+        }
+        #edit{
+            padding-top: 7px;
+            padding-left: 15px;
+        }
+        #compass{
+            padding-top: 7px;
+            padding-left: 15px;
+        }
+        #like{
+            padding-top: 7px;
+            padding-left: 15px;
+        }
+
+        #profilelogo{
+            padding-top: 7px;
+            padding-left: 15px;
+        }
+
+        #button_home{
+            background-color: white;
+            height: 25px;
+            width: 25px;
+            object-fit: cover;
+        }
+    
+        
+
+        @media screen and (min-width: 736px){
+            main {
+                padding: 20px;
+            }
+
+            .navigationList{
+                border-bottom: none;
+            }
+
+            .navigationItem_Button{
+                padding: 18px;
+            }
+
+            .navigationItem{
+                width: auto;
+                margin-right: 50px;
+            }
+
+            .navigationItem_Text{
+                display: block;
+            }
+
+            .navigationItem_Icon{
+                margin-right: 6px;
+                width: 12px;
+                height: 12px;
+            }
+            
+            .navigationItem.active::before {
+            content: '';
+            position: absolute;
+            height: 1px;
+            width: 100%;
+            background-color: #000;
+            top: -1px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            }  
+            
+             
+            .navigationItem.active .navigationItem_Icon path {
+                fill: #000;
+            }
+
+            /* .PhotosGrid_Photo{
+                width: calc(33% - 16px);
+                margin-right: 26px;    
+            } */
+        }
+
+        @media screen and (min-width: 980px){
+            main{
+                max-width: 935px;
+                margin:auto;
+            }
+
+            .PhotosGrid_Photo{
+                height: 293px;
+            }
+
+            
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <ul class="navigation_First">
+            <div id="logo">
+               <a href="https://www.instagram.com/"><img src="https://www.instagram.com/static/images/web/mobile_nav_type_logo-2x.png/1b47f9d0e595.png" height="29px" width="103px">
+            </img></a> 
+
+            <div id="searchbox">               
+                <input type="text" value="검색" width="268" height="36">
+            </div>
+            <!-- <button type="button" id="button_home"> -->
+                <div id="home">
+                    <img src="C:\Users\user\Desktop\Instagram-home-icon-on-transparent-background-PNG.png" height="24px" width="24px">
+                </div>
+            <!-- </button> -->
+            <div id="send">
+                <img src="C:\Users\user\Desktop\Daco_5351493.png" height="24px" width="24px">
+            </div>
+            <div id="edit">
+                <img src="C:\Users\user\Desktop\—Pngtree—instagram plus sets upload _4983835.png" height="24px" width="24px">
+            </div>
+            <div id="compass">
+                <img src="C:\Users\user\Desktop\pngegg (1).png" height="24px" width="24px">
+            </div>
+            <div id="like">
+                <img src="C:\Users\user\Desktop\SeekPng.com_heart-icon-png_202112.png" height="24px" width="24px">
+            </div>
+
+        </ul>
+
+        <ul class="navigationList">
+            <li class="navigationItem active">
+                <button class="navigationItem_Button">
+                    <svg aria-label="Posts" class="navigationItem_Icon" fill="#262626" viewBox="0 0 48 48">
+                        <path clip-rule="evenodd"
+                            d="M45 1.5H3c-.8 0-1.5.7-1.5 1.5v42c0 .8.7 1.5 1.5 1.5h42c.8 0 1.5-.7 1.5-1.5V3c0-.8-.7-1.5-1.5-1.5zm-40.5 3h11v11h-11v-11zm0 14h11v11h-11v-11zm11 25h-11v-11h11v11zm14 0h-11v-11h11v11zm0-14h-11v-11h11v11zm0-14h-11v-11h11v11zm14 28h-11v-11h11v11zm0-14h-11v-11h11v11zm0-14h-11v-11h11v11z"
+                            fill-rule="evenodd"></path>
+                    </svg>
+                   <a href="index.html"><p class="navigationItem_Text">POSTS</p></a>
+                </button>
+            </li>
+
+            <li class="navigationItem">
+                <button class="navigationItem_Button">
+                    <svg aria-label="Posts" class="navigationItem_Icon" fill="#8e8e8e" viewBox="0 0 48 48">
+                        <path
+                            d="M41 10c-2.2-2.1-4.8-3.5-10.4-3.5h-3.3L30.5 3c.6-.6.5-1.6-.1-2.1-.6-.6-1.6-.5-2.1.1L24 5.6 19.7 1c-.6-.6-1.5-.6-2.1-.1-.6.6-.7 1.5-.1 2.1l3.2 3.5h-3.3C11.8 6.5 9.2 7.9 7 10c-2.1 2.2-3.5 4.8-3.5 10.4v13.1c0 5.7 1.4 8.3 3.5 10.5 2.2 2.1 4.8 3.5 10.4 3.5h13.1c5.7 0 8.3-1.4 10.5-3.5 2.1-2.2 3.5-4.8 3.5-10.4V20.5c0-5.7-1.4-8.3-3.5-10.5zm.5 23.6c0 5.2-1.3 7-2.6 8.3-1.4 1.3-3.2 2.6-8.4 2.6H17.4c-5.2 0-7-1.3-8.3-2.6-1.3-1.4-2.6-3.2-2.6-8.4v-13c0-5.2 1.3-7 2.6-8.3 1.4-1.3 3.2-2.6 8.4-2.6h13.1c5.2 0 7 1.3 8.3 2.6 1.3 1.4 2.6 3.2 2.6 8.4v13zM34.6 25l-9.1 2.8v-3.7c0-.5-.2-.9-.6-1.2-.4-.3-.9-.4-1.3-.2l-11.1 3.4c-.8.2-1.2 1.1-1 1.9.2.8 1.1 1.2 1.9 1l9.1-2.8v3.7c0 .5.2.9.6 1.2.3.2.6.3.9.3.1 0 .3 0 .4-.1l11.1-3.4c.8-.2 1.2-1.1 1-1.9s-1.1-1.2-1.9-1z">
+                        </path>
+                    </svg>
+                   <a href="purpose(main).html"><p class="navigationItem_Text"> contents </p></a>
+                </button>
+            </li>
+
+            <li class="navigationItem">
+                <button class="navigationItem_Button">
+                    <svg aria-label="Tagged" class="navigationItem_Icon" fill="#8e8e8e" viewBox="0 0 48 48">
+                        <path
+                            d="M41.5 5.5H30.4c-.5 0-1-.2-1.4-.6l-4-4c-.6-.6-1.5-.6-2.1 0l-4 4c-.4.4-.9.6-1.4.6h-11c-3.3 0-6 2.7-6 6v30c0 3.3 2.7 6 6 6h35c3.3 0 6-2.7 6-6v-30c0-3.3-2.7-6-6-6zm-29.4 39c-.6 0-1.1-.6-1-1.2.7-3.2 3.5-5.6 6.8-5.6h12c3.4 0 6.2 2.4 6.8 5.6.1.6-.4 1.2-1 1.2H12.1zm32.4-3c0 1.7-1.3 3-3 3h-.6c-.5 0-.9-.4-1-.9-.6-5-4.8-8.9-9.9-8.9H18c-5.1 0-9.4 3.9-9.9 8.9-.1.5-.5.9-1 .9h-.6c-1.7 0-3-1.3-3-3v-30c0-1.7 1.3-3 3-3h11.1c1.3 0 2.6-.5 3.5-1.5L24 4.1 26.9 7c.9.9 2.2 1.5 3.5 1.5h11.1c1.7 0 3 1.3 3 3v30zM24 12.5c-5.3 0-9.6 4.3-9.6 9.6s4.3 9.6 9.6 9.6 9.6-4.3 9.6-9.6-4.3-9.6-9.6-9.6zm0 16.1c-3.6 0-6.6-2.9-6.6-6.6 0-3.6 2.9-6.6 6.6-6.6s6.6 2.9 6.6 6.6c0 3.6-3 6.6-6.6 6.6z">
+                        </path>
+                    </svg>
+                   <a href="colse.html"> <p class="navigationItem_Text"> closing words </a>
+                    </p>
+                </button>
+            </li>
+        </ul>
+
+    </input>
+
+    <div class="write">
+        <h2> <b> 친구 </b></h2>
+        <br>
+        <h4> "
+            친구란 무엇인가. <br>
+            나는 친구를 나의 모든 것을 공유하고 내가 아플때 같이 아파주는 그런 관계를 친구라고 생각한다. <br>
+            항상 함께해 주고 힘들면 도와주며 힘이되주는 그런 친구를 얻고 싶기도 하고 그런 친구가 되기 위해서 노력하며<br>
+             이 험난한 삶이라는 여정을 친구와 함께 걸어가는 것이 낭만이 아닐까?
+            
+        </h4>
+        </div>
+        <br><br><br>
+        <div class="write1">
+    
+            <h4> 
+                보지 않는 곳에서 
+                <br>
+                나를 좋게 말하는 사람은 
+                <br>
+                진정한 친구이다.
+                <br>
+    
+               - 토마스 풀러 -
+            </h4>
+            </div>
+            <br>
+            
+        <div class="write1">
+    
+            <h4> 
+                광남아~ 우리 강아지. 사람을 너무 믿지 마러..
+                <br>
+                머리 검은 짐승은 언젠가 반드시 배신을 한단다..
+                <br>
+                그럼 그냥 속지 뭐…<br>
+믿지 못할 바엔, 속는 편이 훨씬 나아<br>
+할매가 나한테 그랬듯이…
+<br><br>
+               - 웹툰 헬퍼 中 (장광남 대사) -
+               
+            </h4>
+            <img src="#" width="350px" height="350px" alt="">
+
+            </div>
+            <br><br>
+            <div class="write1">
+    
+                <h4> 
+    
+                    난 말이다 병준아…<br>
+                    소수의 지배자가 되기보단,<br>
+                    모두의 친구가 되었음 한다..<br>
+                    그 편이..<br>
+                    더 폼나지 않겠냐?<br>
+                    <br>
+                              - 웹툰 헬퍼 中 (장광남 대사) -
+
+    
+                </h4>
+                <img src="#" width="350px" height="350px" alt="">
+                </div>
+                <br><br>
+    
+                <div class="write1">
+    
+                    <h4> 
+                        너…<br>
+                        인간을 다스리는 힘 중에 폭력,법 그리고 돈보다 위에 있는 게 뭔 줄 알어?<br>
+                        / 글쎄요…<br>
+                        /바로, 믿음이다.
+                        <br><br>
+                            - 웹툰 헬퍼 中 -
+        
+                    </h4>
+                    <img src="#" width="350px" height="350px" alt="">
+                    </div>
+                    <br><br>
+                    
+                <div class="write1">
+    
+                    <h4> 
+                        친구들에게서 기대하는 것을 친구들에게 베풀어라.
+
+    
+    
+                            <br>
+                            - 그리스 철학자, 아리스토텔레스 -
+        
+                    </h4>
+                    </div>
+                    <br><br>
+                    <div class="write1">
+    
+                        <h4> 
+                            고난과 불행이 찾아올 때, 
+비로소 친구가 친구임을 안다.
+
+        
+        
+<br>
+                                - 이태백(중국 당나라 시인) -
+
+                                
+            
+                        </h4>
+                        </div>
+                        <br><br>
+    
+                        <div class="write1">
+    
+                            <h4> 
+                                여러분과 리무진을 타고 싶어하는 사람은 많겠지만, 
+                                <br>
+                                정작 여러분이 원하는 사람은 리무진이 고장 났을 때 같이 버스를 타 줄 사람입니다.
+
+                            
+    
+                                    - 오프라 원프리 -
+                
+                            </h4>
+    
+                            </div>
+    
+                            <br><br>
+                            
+                        <div class="write1">
+                            <h4> 
+                                친구를 갖는다는것은 또 하나의 인생을 갖는것이다.
+                                
+            
+            
+                                    <br>
+                                    - 그라시안 -
+                                    
+                
+                            </h4>
+                            </div>
+     <br>
+                            <div class="write1">
+                                <h4> 
+                                    Friendship is like wind - the older the better
+                                    
+                                    
+                
+                
+                                        <br>
+                                        - Poland -
+                                        
+                    
+                                </h4>
+                                </div>
+
+                                <br>
+                                <br>
+
+
+                            <div class="write1">
+                                <h4> 
+                                    진흙길이건 황금길이건 그딴 건 하나도 중요치 않다.<br>
+                                    나에게 중요한건 그 길을 누구와 함께 걷느냐 이다.<br>
+                                    나 이성국은, 끝까지 형님과 걷는다.
+                                                                        
+                                    
+                
+                
+                                        <br> <br>
+                                        - 헬퍼 낮도께비 대사 中 -
+                                        
+                                        
+                                </h4>
+                                <img src="#" width="350px" height="350px" alt="">
+
+                                </div>
+
+
+
+
+</body>
+</html>

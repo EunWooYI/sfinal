@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Post</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #fafafa;
+        }
+
+        .navigationList {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding-top: 50px;
+            border-top: 1px solid #dbdbdb;
+            border-bottom: 1px solid #dbdbdb;
+        }
+
+        .middle{ 
+            text-align: center;
+            margin-top: 25px;
+
+
+        }
+        .navigationItem {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            width: 33.3%;
+        }
+
+        .navigationItem:last-child{
+            margin-right: 0;
+        }
+
+        
+        .write {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            margin-top: 10px;
+
+    }
+
+    .write1{
+        font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+    }
+
+        .navigationItem.active .navigationItem_Text {
+            color: #000;
+        }
+        
+         
+        .navigationItem.active .navigationItem_Icon path {
+                fill: #0095f6;
+            }
+
+        .navigationItem_Button{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            background-color: transparent;
+            appearance: none;
+            -webkit-appearance: none;
+            padding: 12px 0;
+            cursor: pointer;
+        }
+        
+        .navigationItem_Icon {
+            width: 24px;
+            height: 24px;
+        }
+
+
+        .navigationItem_Text {
+            display: none;
+            font-weight: bold;
+            font-size: 12 px;
+            color: #868686;
+            letter-spacing: 0.7px;
+        }
+
+        .PhotosGrid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .PhotosGrid_Photo{
+            width: 33%;
+            width: calc(33.3% - 2px);
+            height: 30vw;
+            background-position: center;
+            background-size: cover;
+            margin-bottom: 3px;
+        }
+
+        .navigation_First{
+            list-style: none;
+            display: flex;
+            display: inline-flex;
+            padding: 10px;
+            border-bottom: 1px #dbdbdb;
+        }
+
+        .write {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            margin-top: 20px;
+
+    }
+
+    .write1{
+        font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            margin-top: 30px;
+    }
+
+        #logo{
+            display: flex;
+        }
+        
+        #searchbox{
+            padding-left: 275px;
+            padding-top: 10px;
+            height: 36px;
+            width: 268;
+            border-color: solid gray;
+            fill: solid gray;
+        }
+
+        #home{
+            padding-top: 7px;
+            padding-left: 150px;
+        }
+        #send{
+            padding-top: 7px;
+            padding-left: 15px;
+        }
+        #edit{
+            padding-top: 7px;
+            padding-left: 15px;
+        }
+        #compass{
+            padding-top: 7px;
+            padding-left: 15px;
+        }
+        #like{
+            padding-top: 7px;
+            padding-left: 15px;
+        }
+
+        #profilelogo{
+            padding-top: 7px;
+            padding-left: 15px;
+        }
+
+        #button_home{
+            background-color: white;
+            height: 25px;
+            width: 25px;
+            object-fit: cover;
+        }
+    
+        
+
+        @media screen and (min-width: 736px){
+            main {
+                padding: 20px;
+            }
+
+            .navigationList{
+                border-bottom: none;
+            }
+
+            .navigationItem_Button{
+                padding: 18px;
+            }
+
+            .navigationItem{
+                width: auto;
+                margin-right: 50px;
+            }
+
+            .navigationItem_Text{
+                display: block;
+            }
+
+            .navigationItem_Icon{
+                margin-right: 6px;
+                width: 12px;
+                height: 12px;
+            }
+            
+            .navigationItem.active::before {
+            content: '';
+            position: absolute;
+            height: 1px;
+            width: 100%;
+            background-color: #000;
+            top: -1px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            }  
+            
+             
+            .navigationItem.active .navigationItem_Icon path {
+                fill: #000;
+            }
+
+            /* .PhotosGrid_Photo{
+                width: calc(33% - 16px);
+                margin-right: 26px;    
+            } */
+        }
+
+        @media screen and (min-width: 980px){
+            main{
+                max-width: 935px;
+                margin:auto;
+            }
+
+            .PhotosGrid_Photo{
+                height: 293px;
+            }
+
+            
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <ul class="navigation_First">
+            <div id="logo">
+               <a href="https://www.instagram.com/"><img src="https://www.instagram.com/static/images/web/mobile_nav_type_logo-2x.png/1b47f9d0e595.png" height="29px" width="103px">
+            </img></a> 
+
+            <div id="searchbox">               
+                <input type="text" value="검색" width="268" height="36">
+            </div>
+            <!-- <button type="button" id="button_home"> -->
+                <div id="home">
+                    <img src="C:\Users\user\Desktop\Instagram-home-icon-on-transparent-background-PNG.png" height="24px" width="24px">
+                </div>
+            <!-- </button> -->
+            <div id="send">
+                <img src="C:\Users\user\Desktop\Daco_5351493.png" height="24px" width="24px">
+            </div>
+            <div id="edit">
+                <img src="C:\Users\user\Desktop\—Pngtree—instagram plus sets upload _4983835.png" height="24px" width="24px">
+            </div>
+            <div id="compass">
+                <img src="C:\Users\user\Desktop\pngegg (1).png" height="24px" width="24px">
+            </div>
+            <div id="like">
+                <img src="C:\Users\user\Desktop\SeekPng.com_heart-icon-png_202112.png" height="24px" width="24px">
+            </div>
+
+        </ul>
+
+        <ul class="navigationList">
+            <li class="navigationItem active">
+                <button class="navigationItem_Button">
+                    <svg aria-label="Posts" class="navigationItem_Icon" fill="#262626" viewBox="0 0 48 48">
+                        <path clip-rule="evenodd"
+                            d="M45 1.5H3c-.8 0-1.5.7-1.5 1.5v42c0 .8.7 1.5 1.5 1.5h42c.8 0 1.5-.7 1.5-1.5V3c0-.8-.7-1.5-1.5-1.5zm-40.5 3h11v11h-11v-11zm0 14h11v11h-11v-11zm11 25h-11v-11h11v11zm14 0h-11v-11h11v11zm0-14h-11v-11h11v11zm0-14h-11v-11h11v11zm14 28h-11v-11h11v11zm0-14h-11v-11h11v11zm0-14h-11v-11h11v11z"
+                            fill-rule="evenodd"></path>
+                    </svg>
+                   <a href="index.html"><p class="navigationItem_Text">POSTS</p></a>
+                </button>
+            </li>
+
+            <li class="navigationItem">
+                <button class="navigationItem_Button">
+                    <svg aria-label="Posts" class="navigationItem_Icon" fill="#8e8e8e" viewBox="0 0 48 48">
+                        <path
+                            d="M41 10c-2.2-2.1-4.8-3.5-10.4-3.5h-3.3L30.5 3c.6-.6.5-1.6-.1-2.1-.6-.6-1.6-.5-2.1.1L24 5.6 19.7 1c-.6-.6-1.5-.6-2.1-.1-.6.6-.7 1.5-.1 2.1l3.2 3.5h-3.3C11.8 6.5 9.2 7.9 7 10c-2.1 2.2-3.5 4.8-3.5 10.4v13.1c0 5.7 1.4 8.3 3.5 10.5 2.2 2.1 4.8 3.5 10.4 3.5h13.1c5.7 0 8.3-1.4 10.5-3.5 2.1-2.2 3.5-4.8 3.5-10.4V20.5c0-5.7-1.4-8.3-3.5-10.5zm.5 23.6c0 5.2-1.3 7-2.6 8.3-1.4 1.3-3.2 2.6-8.4 2.6H17.4c-5.2 0-7-1.3-8.3-2.6-1.3-1.4-2.6-3.2-2.6-8.4v-13c0-5.2 1.3-7 2.6-8.3 1.4-1.3 3.2-2.6 8.4-2.6h13.1c5.2 0 7 1.3 8.3 2.6 1.3 1.4 2.6 3.2 2.6 8.4v13zM34.6 25l-9.1 2.8v-3.7c0-.5-.2-.9-.6-1.2-.4-.3-.9-.4-1.3-.2l-11.1 3.4c-.8.2-1.2 1.1-1 1.9.2.8 1.1 1.2 1.9 1l9.1-2.8v3.7c0 .5.2.9.6 1.2.3.2.6.3.9.3.1 0 .3 0 .4-.1l11.1-3.4c.8-.2 1.2-1.1 1-1.9s-1.1-1.2-1.9-1z">
+                        </path>
+                    </svg>
+                   <a href="purpose(main).html"><p class="navigationItem_Text"> contents </p></a>
+                </button>
+            </li>
+
+            <li class="navigationItem">
+                <button class="navigationItem_Button">
+                    <svg aria-label="Tagged" class="navigationItem_Icon" fill="#8e8e8e" viewBox="0 0 48 48">
+                        <path
+                            d="M41.5 5.5H30.4c-.5 0-1-.2-1.4-.6l-4-4c-.6-.6-1.5-.6-2.1 0l-4 4c-.4.4-.9.6-1.4.6h-11c-3.3 0-6 2.7-6 6v30c0 3.3 2.7 6 6 6h35c3.3 0 6-2.7 6-6v-30c0-3.3-2.7-6-6-6zm-29.4 39c-.6 0-1.1-.6-1-1.2.7-3.2 3.5-5.6 6.8-5.6h12c3.4 0 6.2 2.4 6.8 5.6.1.6-.4 1.2-1 1.2H12.1zm32.4-3c0 1.7-1.3 3-3 3h-.6c-.5 0-.9-.4-1-.9-.6-5-4.8-8.9-9.9-8.9H18c-5.1 0-9.4 3.9-9.9 8.9-.1.5-.5.9-1 .9h-.6c-1.7 0-3-1.3-3-3v-30c0-1.7 1.3-3 3-3h11.1c1.3 0 2.6-.5 3.5-1.5L24 4.1 26.9 7c.9.9 2.2 1.5 3.5 1.5h11.1c1.7 0 3 1.3 3 3v30zM24 12.5c-5.3 0-9.6 4.3-9.6 9.6s4.3 9.6 9.6 9.6 9.6-4.3 9.6-9.6-4.3-9.6-9.6-9.6zm0 16.1c-3.6 0-6.6-2.9-6.6-6.6 0-3.6 2.9-6.6 6.6-6.6s6.6 2.9 6.6 6.6c0 3.6-3 6.6-6.6 6.6z">
+                        </path>
+                    </svg>
+                   <a href="colse.html"> <p class="navigationItem_Text"> closing words </a>
+                    </p>
+                </button>
+            </li>
+        </ul>
+
+    </input>
+
+    <div class="write">
+        <h2> <b> 죽음 </b></h2>
+        <br>
+        <h4> 
+    참 많은 사람들이 지금 이 시간에도 태어난다. <br>
+    이와 함께 참 많은 사람들이 세상을 떠난다. <br> 
+    삶이 있으면 죽음이 있다는 것을  다양한 메체들과 많은 사람들의 부고소식을 접하며 <br>
+    많은 사람들이 내 곁을 떠나는 것을 볼때, 나도 언젠가는 죽겠지라는 막연한 공포에 빠지기도 한다. <br>
+    죽음을 경험 해본 사람들이 없기에 물어볼수도 없고 깝깝하다. <br>
+    이런 공포와 답답함 속에서 죽음을 다시 곱씹어 볼때, 죽음이 있음에 나의 삶에 가치가 생기는 것이 아닐까 하는 생각에 이런 죽음조차도 감사하게 느껴지는 요즘이다. <br>
+    당신에게 죽음은 어떠한 존재인가?<br>
+    죽음은 왜 있는 것인가? <br>
+    죽음이 우리에게 주는 교훈은 무엇인가?<br>
+    나에게 죽음이란 언제 죽을지 모르는 나에게 후회없는 삶을 살아갈수 있게 해주는 원동력이다. <br>
+    당신은 어떠한가?<br>
+
+            
+            
+        </h4>
+        </div>
+        <br><br><br>
+        <div class="write1">
+    
+            <h4> 
+                모든 이야기에는 끝이 있지만,<br>
+인생에서의 모든 끝은 새로운 시작을 의미한다.
+
+
+
+
+
+                <br> <br>
+               - 업타운 걸스 中 -
+            </h4>
+            </div>
+            <br>
+            
+        <div class="write1">
+    
+            <h4> 
+                사람은 언제 죽는다고 생각하나? <br>
+                불치의 병에 걸렸을 때?<br>
+                심장이 총알을 꿰뚫었을 때?<br>
+                사람들에게 잊혀질 때다.
+                
+                
+                
+                <br><br>
+               - Dr. 히루루크 (원피스中) 
+               -
+               
+            </h4>
+            <img src="#" width="350px" height="350px" alt="">
+
+            </div>
+            <br><br>
+            <div class="write1">
+    
+                <h4> 
+    
+
+
+                    내가 죽지 않고 살아서 여호와께 영광을
+
+                    
+                    <br><br>
+                              - 김도현 -
+
+    
+                </h4>
+                </div>
+                <br><br>
+    
+                <div class="write1">
+    
+                    <h4> 
+                        살아가는 법을 배우십시오.<br>
+그러면 죽는 법을 알게 됩니다.<br>
+죽는 법을 배우십시요.<br>
+그러면 살아가는 법을 알게 됩니다.<br>
+
+
+
+
+                        <br><br>
+                            - 모리 슈워츠  
+                            -
+        
+                    </h4>
+                    </div>
+                    <br><br>
+                    
+                <div class="write1">
+    
+                    <h4> 
+                        죽음은 그리 멀지 않아.<br>
+                        어렵지도 쉽지도 않고 그냥 있는거지, 곁에
+                        
+                        
+
+
+                            <br><br>
+                            - 죽음에 관하여 中
+                            -
+        
+                    </h4>
+                    </div>
+                    <br><br>
+                    <div class="write1">
+    
+                        <h4> 
+                            하루에 30만명 정도가 죽고, 그만큼 태어나.<br>
+누구든 언제나 죽을수 있다는 거지.
+
+
+        
+                            <br><br>
+                                - 죽음에 관하여 中
+                                -
+
+                                
+            
+                        </h4>
+                        </div>
+                        <br><br>
+    
+                        <div class="write1">
+    
+                            <h4> 
+                                미칠듯 억울하고…<br>
+미칠듯 슬프고,
+그치만 아무것도 탓할수 없는.<br>
+그런거야 죽는다는게.
+
+                                
+                            
+<br><br>
+                                    - 죽음에 관하여 中
+
+
+                                    -
+                
+                            </h4>
+                            <img src="#">
+
+                            </div>
+    
+                            <br><br>
+                            
+                        <div class="write1">
+                            <h4> 
+                                죽음은 삶이 만든 유일한 최고의 발명품이다.
+
+                                
+
+                                
+            
+            
+                                    <br>
+                                    - 스티브 잡스
+
+                                    -
+                                    
+              
+                            </h4>
+                            <br>
+                            <br>
+                            <div class="write1">
+                                <h4> 
+
+                                    내가 태어났을떄는 모두가 웃어줬고 내가 울었으니<br>
+                                    내가 죽을땐 모두 울어줘 내가 웃어줄께
+                                    
+    
+                                    
+    
+                                    
+                
+                
+                                        <br><br>
+                                        - 미상
+
+                                        -
+                                        
+                  
+                                </h4>
+
+                                <br>
+                                <br>
+                                <div class="write1">
+                                    <h4> 
+    
+                                        마지막 가는길 외롭지 않기를
+        
+                                        
+        
+                                        
+                    
+                    
+                                            <br><br>
+                                            - 이은우
+    
+                                            -
+                                            
+                      
+                                    </h4>
+    
+                                
+                            
+                        
+
+
+
+</body>
+</html>

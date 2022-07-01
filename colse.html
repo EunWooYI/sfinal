@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Post</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color:black;
+color: white;
+font-family: Arial, Helvetica, sans-serif;
+font-size: larger;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .navigationList {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding-top: 50px;
+            border-top: 1px solid #dbdbdb;
+            border-bottom: 1px solid #dbdbdb;
+        }
+
+        .middle{ 
+            text-align: center;
+            margin-top: 25px;
+
+
+        }
+        .navigationItem {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            width: 33.3%;
+        }
+
+        .navigationItem:last-child{
+            margin-right: 0;
+        }
+
+        
+        .write {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            margin-top: 10px;
+
+    }
+
+    .write1{
+        font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+    }
+
+        .navigationItem.active .navigationItem_Text {
+            color: #000;
+        }
+        
+         
+        .navigationItem.active .navigationItem_Icon path {
+                fill: #0095f6;
+            }
+
+        .navigationItem_Button{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            background-color: transparent;
+            appearance: none;
+            -webkit-appearance: none;
+            padding: 12px 0;
+            cursor: pointer;
+        }
+        
+        .navigationItem_Icon {
+            width: 24px;
+            height: 24px;
+        }
+
+
+        .navigationItem_Text {
+            display: none;
+            font-weight: bold;
+            font-size: 12 px;
+            color: #868686;
+            letter-spacing: 0.7px;
+        }
+
+        .PhotosGrid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .PhotosGrid_Photo{
+            width: 33%;
+            width: calc(33.3% - 2px);
+            height: 30vw;
+            background-position: center;
+            background-size: cover;
+            margin-bottom: 3px;
+        }
+
+        .navigation_First{
+            list-style: none;
+            display: flex;
+            display: inline-flex;
+            padding: 10px;
+            border-bottom: 1px #dbdbdb;
+        }
+
+        .write {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            margin-top: 20px;
+
+    }
+
+    .write1{
+        font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            margin-top: 30px;
+    }
+
+    .middle{ 
+            text-align: center;
+            margin-top: 25px;
+
+
+        }
+
+        #logo{
+            display: flex;
+        }
+        
+        #searchbox{
+            padding-left: 275px;
+            padding-top: 10px;
+            height: 36px;
+            width: 268;
+            border-color: solid gray;
+            fill: solid gray;
+        }
+
+        #home{
+            padding-top: 7px;
+            padding-left: 150px;
+        }
+        #send{
+            padding-top: 7px;
+            padding-left: 15px;
+        }
+        #edit{
+            padding-top: 7px;
+            padding-left: 15px;
+        }
+        #compass{
+            padding-top: 7px;
+            padding-left: 15px;
+        }
+        #like{
+            padding-top: 7px;
+            padding-left: 15px;
+        }
+
+        #profilelogo{
+            padding-top: 7px;
+            padding-left: 15px;
+        }
+
+        #button_home{
+            background-color: white;
+            height: 25px;
+            width: 25px;
+            object-fit: cover;
+        }
+    
+    
+
+        
+
+        @media screen and (min-width: 736px){
+            main {
+                padding: 20px;
+            }
+
+            .navigationList{
+                border-bottom: none;
+            }
+
+            .navigationItem_Button{
+                padding: 18px;
+            }
+
+            .navigationItem{
+                width: auto;
+                margin-right: 50px;
+            }
+
+            .navigationItem_Text{
+                display: block;
+            }
+
+            .navigationItem_Icon{
+                margin-right: 6px;
+                width: 12px;
+                height: 12px;
+            }
+            
+            .navigationItem.active::before {
+            content: '';
+            position: absolute;
+            height: 1px;
+            width: 100%;
+            background-color: #000;
+            top: -1px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            }  
+            
+             
+            .navigationItem.active .navigationItem_Icon path {
+                fill: #000;
+            }
+
+            /* .PhotosGrid_Photo{
+                width: calc(33% - 16px);
+                margin-right: 26px;    
+            } */
+        }
+
+        @media screen and (min-width: 980px){
+            main{
+                max-width: 935px;
+                margin:auto;
+            }
+
+            .PhotosGrid_Photo{
+                height: 293px;
+            }
+
+            
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Closing words</h1><h6>노래 켜주세요</h6><h6>재생속도는 2배로</h6>
+
+
+<div class="middle">
+    <audio controls autoplay>
+        <source src="C:\Users\user\Desktop\y2mate.com - Zack Hemsey  The Way Instrumental.mp3" type="audio/ogg">
+        <source src="C:\Users\user\Desktop\y2mate.com - Zack Hemsey  The Way Instrumental.mp3" type="audio/mpeg">
+      
+      </audio>
+  </audio>
+</div>
+
+<h5>
+<br>
+당신은 죽음을 마냥 두려움에 떨다가 후회로 가득찬 삶을 한탄하며 죽고 싶은가.<br>
+아니면 당신의 삶에 당신만의 의미를 부여하여 그 의미를 이루기위해 최선을 다하며 죽고 싶은가?<br>
+<br>
+<br>
+이 세상에 태어났으면
+<br>
+<br>
+친구를 아껴라.
+<br>
+<br>    
+사랑하라.
+<br>
+<br>
+가족을 챙겨라.
+<br>
+<br>
+쉬어라.
+<br>
+<br>
+행운을 다스려라.
+<br>
+<br>
+야망을 가져라.
+<br>
+<br>
+
+뭐든 도전하라.
+<br>
+<br>
+
+꿈을 이뤄라.
+<br>
+<br>
+
+삶의 의미를 찾고 죽어라.<br>
+삶의 의미를 이루고 죽어라<br>
+후회 없는 삶을 살고 죽어라.<br>
+
+
+
+</h5>
+
+</body>
+</html>
